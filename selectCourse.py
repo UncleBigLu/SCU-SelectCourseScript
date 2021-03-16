@@ -2,7 +2,7 @@ import crawlscu
 import os
 import requests
 import time
-
+import lxml
 if __name__ == "__main__":
     login = crawlscu.Login()
     # p = input("请输入软件密码: ")

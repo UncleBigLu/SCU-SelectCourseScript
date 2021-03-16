@@ -425,7 +425,7 @@ class Login(object):
             kechengming = course[i]["kcm"]
             kch = course[i]["kch"]
             kxh = course[i]["kxh"]
-            kechengID = kcID + '_' + kechengh + '_2019-2020-2-1'
+            kechengID = kcID + '@' + kechengh + '@2020-2021-1-1'
 
             teacher = course[i]["skjs"]
             if (kechengh==str(kxh)):

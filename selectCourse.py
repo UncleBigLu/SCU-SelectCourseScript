@@ -3,26 +3,27 @@ import os
 import requests
 import time
 import lxml
+
 if __name__ == "__main__":
     login = crawlscu.Login()
     # p = input("请输入软件密码: ")
     # if (p != 'sorry'):
     #     print('Wrong password!')
     #     exit(0)
-    
+
     print('******************************************************')
     print("欢迎使用SsorryQaQ的小工具:自动抢课")
     print('******************************************************')
     print('')
     username = input('请输入学号: ')
-    passwd =  input('请输入密码: ')
-    
+    passwd = input('请输入密码: ')
 
-    login.login(username,passwd)
+    login.login(username, passwd)
+
     print(login.user)
 
     courses = {}
-    
+
     while (1):
         kcId = input("请输入要需要抢的课程号(格式 201051020)(0 to finish): ")
         kcm = input("请输入要需要抢的课序号(格式 01)(0 to finish): ")
@@ -35,21 +36,20 @@ if __name__ == "__main__":
         # login.login(username,passwd)
         time.sleep(0.1)
         for key in courses:
-            login.course(username,key,courses[key])
+            login.course(username, key, courses[key])
         # 105395020_221
         # try:
         # login.course(username,'105395020','229')
-        
-        
-            # login.course(username,'999005030','03')
-            # login.course(username,'999005030','05') 
-            # login.course(username,'999005030','06')
-            # login.course(username,'999005030','07')
-            # login.course(username,'999006030','03') 
-            #login.course(username,'999007030','01')
-            #login.course(username,'999007030','02') have 3
-            #login.course(username,'999007030','03')
-            # login.course(username,'105395020','210')
+
+        # login.course(username,'999005030','03')
+        # login.course(username,'999005030','05')
+        # login.course(username,'999005030','06')
+        # login.course(username,'999005030','07')
+        # login.course(username,'999006030','03')
+        # login.course(username,'999007030','01')
+        # login.course(username,'999007030','02') have 3
+        # login.course(username,'999007030','03')
+        # login.course(username,'105395020','210')
         # except:
         #     time.sleep(1)
         #     login.login(username,passwd)

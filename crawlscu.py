@@ -9,11 +9,20 @@ from bs4 import BeautifulSoup
 from PIL import Image
 from io import BytesIO
 from io import StringIO
+from socket import error as socket_error
+import time
+import sys
 
-class course(object):
+
+def eprint(*args, **kwargs):
+    print(*args, file=sys.stderr, **kwargs)
+
+class Course(object):
     def __init__(self):
         self.begin = 0
         self.end = 0
+
+
 class Login(object):
     def __init__(self):
         self.headers = {
@@ -409,7 +418,17 @@ class Login(object):
             'kyl': '0',
             'kclbdm': ''
         }
-        response = self.session.post(self.search_course,data=post_data,headers=self.headers)
+        flag = True
+        while flag:
+            try:
+                response = self.session.post(self.search_course,data=post_data,headers=self.headers)
+                flag = False
+            except socket_error as e:
+                eprint(e)
+                time.sleep(1)
+
+
+
         response = response.json()
         course = response.get('rwRxkZlList')
         course = eval(course)
